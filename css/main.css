@@ -96,13 +96,24 @@ textarea {
    ========================================================================== */
 
 .centered{
-	width: 64em;
+	width: 100%;
+	max-width: 64em;
 	margin: 0 auto;
 }
+
+
 
 header{
 	padding: 2em;
 
+}
+.brim {
+	width: 100%;
+	background-color: black;
+	height: 16px;
+}
+header.dark {
+	margin: 0px 10px 0px 10px;
 }
 .dark{
 	background-color: #000;
@@ -117,7 +128,26 @@ header{
 	padding: 2em;
 }
 
+th {
+	text-align: left;
+}
 
+
+label {
+	text-align: left;
+	padding: 0px 10px 0px 0px;
+}
+
+
+@media (max-width: 600px) {
+
+  header {
+  	font-size: 10pt;
+  }
+
+  
+
+}
 
 
 
