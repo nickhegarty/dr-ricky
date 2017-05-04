@@ -12,20 +12,99 @@
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
 	</head>
 	<body>
 		<section class="centered">
-			<header class="dark"><h1>Dr. Ricky's Estimation Wizard!</h1></header>
+			<header class="dark"><h1><!-- Dr. Ricky's Estimation Wizard! --></h1></header>
 		</section>
 		<section class="dark">
 			<section class="centered light">
 				<section class="body_content">
-					<p>Test</p>
+					<div class="row">
+
+						<div class="col-sm-4">
+						<table class="table" id="added_stories">
+							<thead>
+								<tr>
+									<th># Stories</th>
+									<th>Size</th>
+									<th>Unit</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						</div>
+					</div>
+					<button class="btn btn-primary" id="show_add_form">Add a story estimate</button> <button class="btn btn-success" id="done_adding">I'm Done!</button>
+					<form class="form-horizontal" id="add_story_form" style="display: none; margin-top: 15px">
+
+						<label for="numStories" class="control-label col-sm-2">Number of stories: </label>
+						<div class="col-sm-2">
+							<input type="number" class="form-control" id="numStories">
+						</div>
+
+
+						<label for="unit" class="control-label col-sm-1">Unit:</label>
+						<div class="col-sm-2" style="padding-top: 7px;">
+							<select id="unit">
+								<option>Select One...</option>
+								<option value="points">Panda Points</option>
+								<option value="size">Panda T-shirt Size</option>
+							</select>
+						</div>
+
+						<div id="estimate_holder" class="col-sm-4" style="display: none;">
+							<label class="control-label col-sm-4">Estimate:</label>
+							<div id="estimate_value" class="col-sm-6">
+							</div>
+							<div class="col-sm-2">
+								<button class="btn btn-default" id="add_button" type="submit">+</button>
+							</div>
+						</div>
+	<!-- 					<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label for="exampleSelect">Choose one:</label>
+							<select id="exampleSelect">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</select>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> Check me out
+							</label>
+						</div> 
+						<button type="submit" class="btn btn-default">Submit</button>-->
+					</form>
 				</section>
 			</section>
 		</section>
 
+		<div class="hidden">
+			<div id="number_estimate">
+				<input type="number" class="form-control" id="points_val">
+			</div>
+			<div id="tshirt_estimate">
+				<select id="tshirt_val" style="margin-top: 7px">
+					<option>Select One...</option>
+					<option value="S">S - Cute!</option>
+					<option value="M">M - Normal!</option>
+					<option value="L">L - Hefty!</option>
+					<option value="XL">XL - MASSIVE!!!</option>
+				</select>
+			</div>
+		</div>
 		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 		<script src="js/plugins.js"></script>
