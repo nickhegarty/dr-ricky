@@ -95,12 +95,88 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+section.mode {
+	text-align: center;
+	margin: auto;
+}
+
+div.glasses {
+	margin: auto;
+	width: 60%;
+	height: 100px;
+	display: block;
+	position: relative;
+}
+
+div.glasses a {
+	font-size: 18pt;
+	
+	width: 250px;
+	height: 150px;
+	 display: block;
+  top: 0px;
+
+  position: absolute;
+  margin: 20px 0;
+  background: black;
+  border-radius: 50% / 10%;
+  color: white;
+  text-align: center;
+ text-indent: .1em;
+  color: #FFFFFF;
+  
+}
+
+.agile {
+  
+  left: 0px;
+  
+}
+
+div.glasses a span {
+	display: block;
+	position: relative;;
+	z-index: 10;
+	line-height: 150px;
+	font-size: 20pt;
+}
+div.glasses a:before {
+z-index: 10;
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background: inherit;
+  border-radius: 5% / 50%;
+}
+
+
+.waterfall {
+  
+  right: 0px;
+
+}
+
+
+
+#panda {
+	display: none;
+}
+
+.body_content {
+	display: none;
+}
+
 .centered{
 	width: 100%;
 	max-width: 82em;
 	margin: 0 auto;
+
 }
 header{
+	text-align: center;
 	padding: 2em;
 }
 .brim {
@@ -118,6 +194,7 @@ header.dark {
 .light{
 	background-color: #FFF;
 	color: #000;
+
 }
 .body_content{
 	padding: 2em;
@@ -129,9 +206,37 @@ label {
 	text-align: left;
 	padding: 0px 10px 0px 0px;
 }
+
+@media (max-width: 1200px) {
+  header h1 {
+  	font-size: 20pt;
+  }
+
+  div.glasses a {
+  	width: 170px;
+  	height: 90px;
+  }
+
+  div.glasses a span {
+	line-height: 90px;
+	font-size: 16pt;
+  }
+}
+
+
 @media (max-width: 600px) {
-  header {
-  	font-size: 10pt;
+  header h1 {
+  	font-size: 16pt;
+  }
+
+  div.glasses a {
+  	width: 100px;
+  	height: 60px;
+  }
+
+  div.glasses a span {
+	line-height: 60px;
+	font-size: 13pt;
   }
 }
 

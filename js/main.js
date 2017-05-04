@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	$('.agile').click(function(){
+		$('.mode').hide();
+		$('.body_content').show();
+	})
 	$('#unit').change(function(){
 		$('#estimate_value').html('');
 		if(this.value == "points"){
