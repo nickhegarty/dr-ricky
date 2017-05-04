@@ -100,12 +100,8 @@ textarea {
 	max-width: 82em;
 	margin: 0 auto;
 }
-
-
-
 header{
 	padding: 2em;
-
 }
 .brim {
 	width: 100%;
@@ -123,37 +119,21 @@ header.dark {
 	background-color: #FFF;
 	color: #000;
 }
-
 .body_content{
 	padding: 2em;
 }
-
 th {
 	text-align: left;
 }
-
-
 label {
 	text-align: left;
 	padding: 0px 10px 0px 0px;
 }
-
-
 @media (max-width: 600px) {
-
   header {
   	font-size: 10pt;
   }
-
-  
-
 }
-
-
-
-
-
-
 
 /* ==========================================================================
    Helper classes
