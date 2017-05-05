@@ -83,19 +83,36 @@ for( var i = 0; i < storyArray.length; i++ ) {
     }
 }
 
+function showCauldron() {
+	$('.cauldron').show();
+}
+
 $(document).ready(function(){
 	$("#done_adding").click(function() {
-		chart();
-		$(".estimation").hide();	
-		$('#chart_div').height( 475 );
+
+		showCauldron();
 		$('#done_adding').hide();
 		$('#panda form').hide();
-		$('#panda #waterfall_form4').show();
 
-		showPanda();
+		$(".estimation").hide();	
+		window.setTimeout( function()  {
+			$('.cauldron').hide();
+			chart();
+			$('#chart_div').height( 475 );
+
+			$('#panda #waterfall_form4').show();
+
+			showPanda();
+		}, 3000 );
+		
+		
+		
+		
 		
 	
 	})
+
+
 
 	$('.agile').click(function(){
 		$('.mode').hide();

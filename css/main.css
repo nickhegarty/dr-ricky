@@ -263,6 +263,13 @@ label {
 	padding: 0px 10px 0px 0px;
 }
 
+.cauldron {
+	width: 100%;
+	padding: 100px 0px 0px 0px;
+	display: none;
+	text-align: center;
+}
+
 @media (max-width: 1200px) {
   header h1 {
   	font-size: 20pt;
