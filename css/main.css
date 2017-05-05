@@ -173,6 +173,15 @@ table th {
 	padding: 10px;
 }
 
+.form-horizontal {
+	float: left;
+	clear: both;
+	padding: 10px 0px 10px 0px;
+	background-color: #CCC;
+	width: 100%;
+	margin: auto;
+}
+
 #chart_div { 
 height: 1px;
 
