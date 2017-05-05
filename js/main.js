@@ -54,7 +54,7 @@ for( var i = 0; i < storyArray.length; i++ ) {
   	var dat2 =  new Date();
   	dat2.setDate(dateNow.getDate() + i + 1);
 
-	data.addRow( [i+ 1 + "", story.name,'', dat,dat2, tshirtToNumber(story.value), 0, depen])
+	data.addRow( [i+ 1 + "", story.name,(i%3) + "!", dat,dat2, tshirtToNumber(story.value), 0, depen])
 
 }
 /*
@@ -74,7 +74,7 @@ for( var i = 0; i < storyArray.length; i++ ) {
 
       var options = {
         height: 475,
-        width: 800
+        width: 1000
       };
 
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
@@ -86,7 +86,9 @@ for( var i = 0; i < storyArray.length; i++ ) {
 $(document).ready(function(){
 	$("#done_adding").click(function() {
 		chart();
-
+		$(".estimation").hide();	
+		$('#chart_div').height( 475 );
+		$('#done_adding').hide();
 		$('#panda form').hide();
 		$('#panda #waterfall_form4').show();
 

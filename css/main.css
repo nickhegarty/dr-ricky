@@ -173,6 +173,15 @@ table th {
 	padding: 10px;
 }
 
+#chart_div { 
+height: 1px;
+
+    width: 1000px;
+    margin: auto;
+
+    text-align: center;
+}
+
 #panda {
 	
 	position: absolute;
