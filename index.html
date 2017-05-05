@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 	</head>
 	<body>
@@ -42,42 +43,33 @@
 						</tr>
 
 						<tr>
-							<th>Budget</th>
+							<th>Budget type</th>
 							<td>
-								<select>
-									<option>Time and materials</option>
-									<option>Fixed scope</option>
-									<option>Fixed time</option>
-									<option>Fixed time and scope</option>
+								<select id="budget">
+									<option value="tm">Time and materials</option>
+									<option value="fs">Fixed scope</option>
+									<option value="ft">Fixed time</option>
+									<option value="fts">Fixed time and scope</option>
 								</select>
 							</td>
 						</tr>
 
 					</table>
 				</div>
-				<div class="row">
 
-					<div class="col-sm-4">
-					<table class="table" id="added_stories">
-						<thead>
-							<tr>
-								<th># Stories</th>
-								<th>Size</th>
-								<th>Unit</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-					</div>
+<div class="row stories">
+					<button class="btn btn-primary" id="show_add_form">Add a story estimate</button>
+					
+
 				</div>
-				<div class="row">
-				<button class="btn btn-primary" id="show_add_form">Add a story estimate</button> <button class="btn btn-success" id="done_adding">I'm Done!</button>
+
+				<div class="row stories">
+				
 				<form class="form-horizontal" id="add_story_form" style="display: none; margin-top: 15px">
 
-					<label for="numStories" class="control-label col-sm-2">Number of stories: </label>
+					<label for="nameStory" class="control-label col-sm-2">Story name: </label>
 					<div class="col-sm-2">
-						<input type="number" class="form-control" id="numStories">
+						<input type="text" class="form-control" id="nameStory">
 					</div>
 
 
@@ -87,6 +79,7 @@
 							<option>Select One...</option>
 							<option value="points">Panda Points</option>
 							<option value="size">Panda T-shirt Size</option>
+							<option value="seconds">Time to exact second</option>
 						</select>
 					</div>
 
@@ -119,8 +112,51 @@
 						</label>
 					</div> 
 					<button type="submit" class="btn btn-default">Submit</button>-->
+
 				</form>
+				 
 				</div>
+
+				<div class="row stories">
+
+					<div class="col-sm-4">
+					<table class="table" id="added_stories">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Size</th>
+								<th>Unit</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				
+
+				<div class="row">
+					<br />
+					<br />
+									<table>
+						<tr>
+							<th>Calculation complexity</th>
+							<td>
+								<select id="calculation_type">
+									<option>Select One...</option>
+									<option value="tm">Simple deterministic linear equation</option>
+									<option value="fs">Slightly more complex heuristic polynomial equation</option>
+									<option value="insane">Insane multi-simulated heuristic logarithmic magic</option>
+									
+								</select>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+
+					<button class="btn btn-success" id="done_adding">I'm Done!</button>
+				</row>
 			</section>
 
 		</section>
@@ -140,8 +176,62 @@
 			</div>
 		</div>
 
+		
+		<div id="chart_div"></div>
+
+
 		<div id="panda">
-			<p>It looks
+			<form id="waterfall_form">
+				<p>You chose 'fixed time AND fixed scope'</p>
+				<p>Are you sure you're not doing a waterfall project?</p>
+			
+				<input type="radio" name="panda_choice" value="waterfall" id="waterfall_radio" /><label for="waterfall_radio">Choose Waterfall</label><br />
+
+				<input type="radio" name="panda_choice" value="agile" id="agile_radio" /><label for="agile_radio">Choose Agile</label><br />
+
+				<input type="checkbox" name="bugger_off" value="bugger_off" id="bugger_off" class="bugger_off" /><label for="bugger_off">Don't show this stupid panda again</label>
+
+
+			</form>
+
+			<form id="waterfall_form2">
+				<p>You chose 'Time every story to the exact second'</p>
+				<p>Are you <em>REALLY</em> sure you're not doing a waterfall project?</p>
+			
+				<input type="radio" name="panda_choice" value="waterfall" id="waterfall_radio2" /><label for="waterfall_radio">Choose Waterfall</label><br />
+
+				<input type="radio" name="panda_choice" value="agile" id="agile_radio2" /><label for="agile_radio">Choose Agile</label><br />
+
+				<input type="checkbox" name="bugger_off" value="bugger_off" id="bugger_off2" class="bugger_off" /><label for="bugger_off">Don't show this stupid panda again</label>
+
+
+			</form>
+			
+
+			<form id="waterfall_form3">
+				<p>You chose 'Insane multi-simulated heuristic log magic'</p>
+				<p>Are you <em>REALLY</em> sure you're not doing a waterfall project?</p>
+			
+				<input type="radio" name="panda_choice" value="waterfall" id="waterfall_radio3" /><label for="waterfall_radio">Choose Waterfall</label><br />
+
+				<input type="radio" name="panda_choice" value="agile" id="agile_radio3" /><label for="agile_radio">Choose Agile</label><br />
+
+				<input type="checkbox" name="bugger_off" value="bugger_off" id="bugger_off3" class="bugger_off" /><label for="bugger_off">Don't show this stupid panda again</label>
+
+
+			</form>
+
+			<form id="waterfall_form4">
+				<p>You're totally going for waterfall here.</p>
+				<p>I've drawn yoy a Gantt chart!</p>
+			
+
+
+			</form>
+
+
+
+			<img src="./img/panda.png" alt="Animal too stupid to breed or eat appropriate food" title="Animal too stupid to breed or eat appropriate food" />
 		</div>
 		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
